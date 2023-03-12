@@ -1,0 +1,22 @@
+{
+  "name": "@20230310-graphql-dynamo/core",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "sst bind vitest",
+    "typecheck": "tsc -noEmit"
+  },
+  "devDependencies": {
+    "vitest": "^0.29.2",
+    "@types/node": "^18.15.0",
+    "sst": "^2.1.24",
+    "@aws-sdk/types": "^3.272.0",
+    "@aws-sdk/smithy-client": "^3.279.0"
+  },
+  "dependencies": {
+    "sst": "^2.1.24",
+    "ulid": "^2.3.0",
+    "electrodb": "^2.4.2",
+    "@aws-sdk/client-dynamodb": "^3.288.0"
+  }
+}

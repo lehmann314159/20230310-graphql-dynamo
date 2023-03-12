@@ -1,0 +1,21 @@
+{
+  "name": "@20230310-graphql-dynamo/functions",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "sst bind vitest",
+    "typecheck": "tsc -noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.0",
+    "@types/aws-lambda": "^8.10.111",
+    "sst": "^2.1.24"
+  },
+  "dependencies": {
+    "sst": "^2.1.24",
+    "@pothos/core": "^3.27.1",
+    "graphql": "^16.6.0",
+    "ulid": "^2.3.0",
+    "@types/aws-lambda": "^8.10.111"
+  }
+}
