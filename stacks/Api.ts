@@ -3,6 +3,10 @@ import { Database } from "./Database.js";
 
 export function Api({ stack }: StackContext) {
   const api = new ApiGateway(stack, "api", {
+    customDomain: {
+      domainName: "graphql-demo.api.verynormalserver.com",
+      hostedZone: "verynormalserver.com",
+    },
     defaults: {
       function: {
         bind: [use(Database)],

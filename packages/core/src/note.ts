@@ -7,7 +7,7 @@ export * as Note from "./note";
 export const NoteEntity = new Entity(
   {
     model: {
-      version: "1",
+      version: "6",
       entity: "Note",
       service: "scratch",
     },
@@ -37,7 +37,13 @@ export const NoteEntity = new Entity(
           composite: ["noteID"],
         },
       },
-
+      withNoteDate: {
+        index: 'gsi2',
+        pk: {
+          field: 'gsi2pk',
+          composite: ['noteDate'],
+        },
+      }
     },
   },
   Dynamo.Configuration
@@ -66,6 +72,6 @@ export async function list() {
 }
 
 export async function listWithDate(noteDate: string) {
-  const result = await NoteEntity.query.primary({noteDate}).go();
+  const result = await NoteEntity.query.withNoteDate({noteDate}).go();
   return result.data;
 }

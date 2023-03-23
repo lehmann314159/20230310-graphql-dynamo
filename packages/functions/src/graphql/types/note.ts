@@ -27,7 +27,7 @@ builder.queryFields((t) => ({
   }),
   notes: t.field({
     type: [NoteType],
-    resolve: () => Note.list(),
+    resolve: async () => Note.list(),
   }),
   notesWithDate: t.field({
     type: [NoteType],
@@ -36,11 +36,9 @@ builder.queryFields((t) => ({
     },
     resolve: async (_, args) => {
       const result = await Note.listWithDate(args.noteDate);
-
       if (!result) {
         throw new Error("Note not found");
       }
-
       return result;
     },
   }),
@@ -53,6 +51,6 @@ builder.mutationFields((t) => ({
       title: t.arg.string({ required: true }),
       noteDate: t.arg.string({ required: true }),
     },
-    resolve: (_, args) => Note.create(args.title, args.noteDate),
+    resolve: async (_, args) => await Note.create(args.title, args.noteDate),
   }),
 }));

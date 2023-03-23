@@ -37,11 +37,9 @@ builder.queryFields((t) => ({
     },
     resolve: async (_, args) => {
       const result = await Task.listWithDate(args.taskDate);
-
       if (!result) {
         throw new Error("Task not found");
       }
-
       return result;
     },
   }),

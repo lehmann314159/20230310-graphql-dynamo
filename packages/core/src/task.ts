@@ -40,7 +40,14 @@ export const TaskEntity = new Entity(
           field: "sk",
           composite: ["taskID"],
         },
-      },
+      },      
+      withTaskDate: {
+        index: 'gsi2',
+        pk: {
+          field: 'gsi2pk',
+          composite: ['taskDate'],
+        },
+      }
     },
   },
   Dynamo.Configuration
@@ -70,6 +77,6 @@ export async function list() {
 }
 
 export async function listWithDate(taskDate: string) {
-  const result = await TaskEntity.query.primary({taskDate}).go();
+  const result = await TaskEntity.query.withTaskDate({taskDate}).go();
   return result.data;
 }

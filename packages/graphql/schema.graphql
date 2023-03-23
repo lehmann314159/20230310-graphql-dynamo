@@ -1,13 +1,14 @@
-type Article {
+type Book {
   id: ID!
   title: String!
-  url: String!
+  chapters: [Chapter!]!
 }
 
-type Mutation {
-  createArticle(title: String!, url: String!): Article!
-  createNote(noteDate: String!, title: String!): Note!
-  createTask(taskDate: String!, taskState: String!, title: String!): Task!
+type Chapter {
+  id: ID!
+  book: Book
+  chapterNumber: Number!
+  theme: String!
 }
 
 type Note {
@@ -16,20 +17,23 @@ type Note {
   title: String!
 }
 
+type Task {
+  date: String!
+  id: ID!
+  state: String!
+  title: String!
+}
+
+type Mutation {
+  createNote(noteDate: String!, title: String!): Note!
+  createTask(taskDate: String!, taskState: String!, title: String!): Task!
+}
+
 type Query {
-  article(articleID: String!): Article!
-  articles: [Article!]!
   note(noteID: String!): Note!
   notes: [Note!]!
   notesWithDate(noteDate: String!): [Note!]!
   task(taskID: String!): Task!
   tasks: [Task!]!
   tasksWithDate(taskDate: String!): [Task!]!
-}
-
-type Task {
-  date: String!
-  id: ID!
-  state: String!
-  title: String!
 }
