@@ -17,15 +17,15 @@ https://graphql-demo.api.verynormalserver.com/graphql
 To interact with it, use the URL above, with POST and a body.
 
 1. To create a task, the body should be similar to:
-   - {"query":"mutation{createTask(title:\\"take over world again\\",taskState:\\"current\\",taskDate:\\"20230312\\"){title}}"}
+- {"query":"mutation{createTask(title:\\"take over world again\\",taskState:\\"current\\",taskDate:\\"20230312\\"){title}}"}
 
 2. To get a list of all tasks:
-   - {"query": "query{tasks{title}}"}
+- {"query": "query{tasks{title}}"}
 
 3. To get a list of all tasks with a particular date:
-   - {"query": "query{tasksWithDate(taskDate:\\"20230312\\"){title}}"}
+- {"query": "query{tasksWithDate(taskDate:\\"20230312\\"){title}}"}
 
 4. To get a particular task:
-   - {"query": "query{task(taskID:\"01GV93153GN6ERAKTD6EZKN6FP\"){title}}"}
+- {"query": "query{task(taskID:\"01GV93153GN6ERAKTD6EZKN6FP\"){title}}"}
 
 Notes work similarly, but without a state.
