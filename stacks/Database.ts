@@ -8,6 +8,9 @@ export function Database({ stack }: StackContext) {
       gsi1pk: "string",
       gsi1sk: "string",
       gsi2pk: "string",
+      gsi3pk: "string",
+      gsi4pk: "string",
+      gsi5pk: "string",
     },
     primaryIndex: {
       partitionKey: "pk",
@@ -20,6 +23,15 @@ export function Database({ stack }: StackContext) {
       },
       gsi2: {
         partitionKey: "gsi2pk",
+      },
+      gsi3: {
+        partitionKey: "gsi3pk",
+      },
+      gsi4: {
+        partitionKey: "gsi4pk",
+      },
+      gsi5: {
+        partitionKey: "gsi5pk",
       },
     },
   });

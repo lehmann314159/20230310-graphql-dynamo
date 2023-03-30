@@ -18,11 +18,9 @@ builder.queryFields((t) => ({
     },
     resolve: async (_, args) => {
       const result = await Task.get(args.taskID);
-
       if (!result) {
         throw new Error("Task not found");
       }
-
       return result;
     },
   }),
